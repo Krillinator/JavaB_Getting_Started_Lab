@@ -5,10 +5,12 @@ import java.util.Scanner;
 import static com.kristoffer.demo.Colors.*;
 
 public class Main {
+
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         // Instantiate Objects
-        Scanner sc = new Scanner(System.in);
         Player player = new Player();
 
         System.out.println(GREEN + "Welcome Adventurer" + RESET);
@@ -17,19 +19,37 @@ public class Main {
 
         System.out.println("Ah.. your name is: " + player.getName());
 
-        // TODO - Fortsätter 11:30 :)
-
         // Menu
-        System.out.println(""); // <-- TODO Let's try something new later
-        switch (sc.nextLine()) {
-            case "1" -> System.out.println("You clicked 1");
-            case "2" -> System.out.println("You clicked 2");
-            case "3" -> System.out.println("You clicked 3");
+        do {
+            System.out.println("""
+                    1. Fight
+                    2. Status
+                    3. Exit Game
+                    """);
+            switch (sc.nextLine()) {
+                case "1" -> fightMenu();
+                case "2" -> player.getStatus();
+                case "3" -> System.exit(0);
 
-            default -> System.out.println("Try again!");
+                default -> System.out.println("Try again!");
+            }
+        } while (true);
+    }
+
+    public static void fightMenu() {
+
+
+
+        System.out.println("Inside another MENU");
+        switch (sc.nextLine()) {
+            case "1" -> System.out.println("Number #1");
+            case "2" -> System.out.println("Number #2");
+
+            default -> System.out.println("Try again");
         }
 
 
 
     }
+
 }

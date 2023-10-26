@@ -11,6 +11,17 @@ public class Player {
     private int level;
     private int baseDamage;
 
+    public void getStatus() {
+        System.out.printf("Name: %s %n", name);
+        System.out.printf("Strength: %d %n", strength);
+        System.out.printf("Intelligence: %d %n", intelligence);
+        System.out.printf("Agility: %d %n", agility);
+        System.out.printf("Health: %d %n", health);
+        System.out.printf("Experience: %d %n", experience);
+        System.out.printf("Level: %d %n", level);
+        System.out.printf("BaseDamage: %d %n", baseDamage);
+    }
+
     public String getName() {
         return name;
     }
