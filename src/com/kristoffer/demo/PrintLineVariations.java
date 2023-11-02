@@ -2,7 +2,7 @@ package com.kristoffer.demo;
 
 public class PrintLineVariations {
 
-    Player player = new Player();
+    Player player = new Player(0,0,0,0,0,0);
 
     public void test() {
         System.out.println("Hello \n World \n" + player.getName());
