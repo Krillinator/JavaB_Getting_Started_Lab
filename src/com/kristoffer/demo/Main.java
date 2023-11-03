@@ -20,11 +20,28 @@ public class Main {
                 5
         );
 
+        // Testing task #2
+        System.out.println(player.getStrength());
+        System.out.println(player.getIntelligence());
+        System.out.println(player.getAgility());
+
+        // Setters?
+        player.setStrength(10);
+        player.setIntelligence(10);
+        player.setAgility(10);
+
+        System.out.println(player.getStrength());
+        System.out.println(player.getIntelligence());
+        System.out.println(player.getAgility());
+
+        // Health
+        player.setHealth(player.getHealth() - 5 );
+        // result = health - 5
+
+        // Welcome our Player
         System.out.println(GREEN + "Welcome Adventurer" + RESET);
         System.out.println("What is your name?");
         player.setName( sc.nextLine() );
-
-
         System.out.println("Ah.. your name is: " + player.getName());
 
         // Menu
@@ -40,7 +57,7 @@ public class Main {
                 case "2" -> player.getStatus();
                 case "3" -> System.exit(0);
 
-                case "0" -> debugReceiveExperience(125, player);
+                // case "0" -> debugReceiveExperience(125, player);
 
                 default -> System.out.println("Try again!");
             }
@@ -49,26 +66,38 @@ public class Main {
 
     public static void fightMenu(Player player) {
 
-        System.out.println("Inside another MENU");
-        switch (sc.nextLine()) {
-            case "1" -> System.out.println("Player " + player.getName() + " is fighting");
-            case "2" -> System.out.println("Number #2");
+        Monster monster = new Monster(5,20,5);
 
-            default -> System.out.println("Try again");
-        }
+        // Fight Menu
+        do {
+
+            System.out.println("-- -- Monster approaching -- --");
+            System.out.println("Monster: " + monster.getHealth());
+
+            System.out.println("""
+                    1. Battle
+                    2. Status
+                    3. Flee
+                    """);
+
+            switch (sc.nextLine()) {
+                case "1" -> battle(player, monster);
+                case "2" -> player.getStatus();
+
+                default -> System.out.println("Try again");
+            }
+        } while (true);
 
     }
 
-    public static void debugReceiveExperience(int amountOfExp, Player player) {
+    public static void battle(Player player, Monster monster) {
+        System.out.println("Inside Battle");
 
-        /* TODO
-            100 -> 1
-            1000 -> 10
-            10 000 -> 100
-            100 000 -> 1000
-         */
-
+        player.takeDamage(5);
+        monster.takeDamage(5);
 
     }
+
+
 
 }
